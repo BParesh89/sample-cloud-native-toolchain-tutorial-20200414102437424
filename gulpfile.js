@@ -30,7 +30,7 @@ gulp.task('lint-css', shell.task(
     { cwd: __dirname, ignoreErrors: false }
 ));
 
-gulp.task('lint', ['lint-js','lint-css']);
+gulp.task('lint', gulp.parallel('lint-js','lint-css'));
 
 /*
 Gulp tasks for unit tests
@@ -66,4 +66,4 @@ gulp.task('dev-setup', function() {
   return bower();
 });
 
-gulp.task('dev-unit', ['dev-karma','dev-mocha']);
+gulp.task('dev-unit', gulp.parallel('dev-karma','dev-mocha'));
